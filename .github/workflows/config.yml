@@ -19,3 +19,4 @@ jobs:
       - name: Run Test
         run: |
           g++ unit.cpp -I ./include -L . -lgtest -lgtest_main -pthread
+          ./a.out
