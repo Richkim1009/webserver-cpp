@@ -31,5 +31,5 @@ jobs:
 
       - name: Compile and Run Test for square.h
         run: |
-          g++ unit.cpp -I ./include -lgtest -lgtest_main -pthread
+          g++ unit.cpp -I ./googletest/googletest/include -lgtest -lgtest_main -pthread
           ./a.out
