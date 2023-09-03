@@ -16,6 +16,6 @@ struct Square
     }
     void scale(int s)
     {
-        mL *= s;
+        mL *= s; // test
     }
 };
