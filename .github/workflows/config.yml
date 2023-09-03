@@ -1,10 +1,12 @@
 name: Config
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+
 on: 
   push:
     branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -12,11 +14,17 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v2
 
-      - name: Install dependencies
+      - name: Update and Install dependencies
         run: |
           sudo apt-get update
+          sudo apt-get install -y libgtest-dev cmake
+          cd /usr/src/gtest
+          sudo cmake CMakeLists.txt
+          sudo make
+          # copy or symlink libgtest.a and libgtest_main.a to your /usr/lib folder
+          sudo cp *.a /usr/lib
 
-      - name: Run Test
+      - name: Compile and Run Test
         run: |
           g++ unit.cpp -I ./include -L . -lgtest -lgtest_main -pthread
           ./a.out
