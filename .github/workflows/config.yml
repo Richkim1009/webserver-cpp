@@ -8,7 +8,7 @@ on:
     branches: [main]
 
 jobs:
-  Explore-GitHub-Actions:
+  Test-Square-Function:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -24,7 +24,7 @@ jobs:
           # copy or symlink libgtest.a and libgtest_main.a to your /usr/lib folder
           sudo cp *.a /usr/lib
 
-      - name: Compile and Run Test
+      - name: Compile and Run Test for square.h
         run: |
           g++ unit.cpp -I ./include -L . -lgtest -lgtest_main -pthread
           ./a.out
