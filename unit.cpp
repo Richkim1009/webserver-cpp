@@ -1,5 +1,5 @@
+#include <gtest/gtest.h>
 #include "square.h"
-#include "gtest/gtest.h"
 
 namespace {
     TEST(SquareTest, perimeter)
