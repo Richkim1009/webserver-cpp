@@ -18,13 +18,16 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libgtest-dev cmake
-          cd /usr/src/gtest
-          sudo cmake CMakeLists.txt
-          sudo make
-          # copy or symlink libgtest.a and libgtest_main.a to your /usr/lib folder
-          sudo cp *.a /usr/lib
+          # Create a directory for building the library files
+          mkdir ~/gtest-build
+          cd ~/gtest-build
+          cmake /usr/src/gtest
+          make
+          # Copy the library files to /usr/lib
+          sudo cp libgtest*.a /usr/lib
 
       - name: Compile and Run Test for square.h
         run: |
           g++ unit.cpp -I ./include -L . -lgtest -lgtest_main -pthread
           ./a.out
+
